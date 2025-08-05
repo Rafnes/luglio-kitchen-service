@@ -1,0 +1,6 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      changes:
+        - include:
+            file: db/changelog/001_create_tables.yml

@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003
+      author: "vdineka"
+      changes:
+        - createTable:
+            tableName: pizza_ingredients
+            columns:
+              - column:
+                  name: pizza_id
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: ingredient_id
+                  type: INT
+                  constraints:
+                    nullable: false
+        - addPrimaryKey:
+            columnNames: pizza_id, ingredient_id
+            tableName: pizza_ingredients
+            constraintName: pk_pizza_ingredients
+        - addForeignKeyConstraint:
+            baseColumnNames: pizza_id
+            baseTableName: pizza_ingredients
+            constraintName: fk_pizza_ingredients_pizza
+            referencedColumnNames: id
+            referencedTableName: pizza
+            onDelete: CASCADE
+        - addForeignKeyConstraint:
+            baseColumnNames: ingredient_id
+            baseTableName: pizza_ingredients
+            constraintName: fk_pizza_ingredients_ingredient
+            referencedColumnNames: id
+            referencedTableName: ingredients
+            onDelete: CASCADE

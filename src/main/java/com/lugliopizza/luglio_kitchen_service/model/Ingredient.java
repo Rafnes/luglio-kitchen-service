@@ -33,7 +33,6 @@ public class Ingredient {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @Column(name = "description", nullable = false)
     @Setter
     @ManyToMany(mappedBy = "ingredients")
     private List<Pizza> pizzas = new ArrayList<>();

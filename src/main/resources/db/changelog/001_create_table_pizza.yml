@@ -1,6 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: 001
+      author: "vdineka"
       changes:
         - createTable:
             tableName: "pizza"
@@ -17,9 +18,9 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                   name: "description"
-                   type: VARCHAR(255)
-                   constraints:
+                  name: "description"
+                  type: VARCHAR(255)
+                  constraints:
                      nullable: false
               - column:
                   name: "price"
@@ -29,29 +30,5 @@ databaseChangeLog:
               - column:
                   name: "dough_type"
                   type: VARCHAR(15)
-                  constraints:
-                    nullable: false
-        - createTable:
-            tableName: "ingredients"
-            columns:
-              - column:
-                  name: "id"
-                  type: INT
-                  constraints:
-                    primaryKey: true
-                    nullable: false
-              - column:
-                  name: "type"
-                  type: VARCHAR(20)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: "name"
-                  type: VARCHAR(50)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: "description"
-                  type: VARCHAR(255)
                   constraints:
                     nullable: false

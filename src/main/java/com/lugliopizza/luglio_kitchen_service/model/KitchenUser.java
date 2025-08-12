@@ -1,5 +1,6 @@
 package com.lugliopizza.luglio_kitchen_service.model;
 
+import com.lugliopizza.luglio_kitchen_service.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,25 +14,27 @@ import java.util.Objects;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class KitchenUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(unique = true, nullable = false)
-    private final String username;
+    @Column(nullable = false)
+    @Setter
+    private String username;
 
     @Column(nullable = false)
-    private final String password;
+    private  String password;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
-    private final String role;
+    private Role role;
 
     public KitchenUser(String username, String password, String role) {
         this.username = username;
         this.password = password;
-        this.role = role;
+        this.role = Role.valueOf(role);
     }
 
     @Override

@@ -9,5 +9,4 @@ public class LuglioKitchenServiceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(LuglioKitchenServiceApplication.class, args);
 	}
-
 }

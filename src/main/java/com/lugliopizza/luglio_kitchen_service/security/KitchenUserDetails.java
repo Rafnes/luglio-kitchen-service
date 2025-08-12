@@ -16,7 +16,7 @@ public class KitchenUserDetails implements UserDetails {
     }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        SimpleGrantedAuthority role = new SimpleGrantedAuthority(kitchenUser.getRole());
+        SimpleGrantedAuthority role = new SimpleGrantedAuthority(kitchenUser.getRole().toString());
         return List.of(role);
     }
 

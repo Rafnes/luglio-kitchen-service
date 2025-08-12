@@ -6,7 +6,9 @@ import com.lugliopizza.luglio_kitchen_service.repository.KitchenUserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class KitchenUserDetailsServiceImpl implements UserDetailsService {
 
     private final KitchenUserRepository kitchenUserRepository;

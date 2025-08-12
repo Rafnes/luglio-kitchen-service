@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru-RU">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация в систему кухни</title>
+</head>
+<body>
+<h2>Вход в систему</h2>
+
+<form th:action="@{/login}" method="post">
+    <div>
+        <label>Имя пользователя</label>
+        <input type="text" name = "username" >
+    </div>
+    <div>
+        <label>Пароль</label>
+        <input type="password" name="password">
+    </div>
+    <div>
+        <button type="submit">Войти</button>
+    </div>
+    <div th:if="${param.error}">Неверное имя пользователя или пароль</div>
+    <div th:if="${param.logout}"> Вы вышли из аккаунта</div>
+</form>
+</body>
+</html>

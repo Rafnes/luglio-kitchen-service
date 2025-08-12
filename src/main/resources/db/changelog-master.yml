@@ -5,3 +5,5 @@ databaseChangeLog:
       file: db/changelog/002_create_table_ingredients.yml
   - include:
       file: db/changelog/003_create_table_pizza_ingredients.yml
+  - include:
+      file: db/changelog/004_create_table_kitchen_user.yml

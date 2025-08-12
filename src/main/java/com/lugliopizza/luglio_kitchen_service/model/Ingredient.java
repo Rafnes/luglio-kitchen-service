@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 @Getter
@@ -36,4 +37,26 @@ public class Ingredient {
     @Setter
     @ManyToMany(mappedBy = "ingredients")
     private List<Pizza> pizzas = new ArrayList<>();
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Ingredient ingredient = (Ingredient) obj;
+        return Objects.equals(id, ingredient.id) && type == ingredient.type && Objects.equals(name, ingredient.name) && Objects.equals(description, ingredient.description) && Objects.equals(pizzas, ingredient.pizzas);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, type, name, description, pizzas);
+    }
+
+    @Override
+    public String toString() {
+        return "Ingredient{" +
+                "id=" + id +
+                ", type=" + type +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

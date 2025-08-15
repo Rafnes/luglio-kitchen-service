@@ -4,7 +4,7 @@ databaseChangeLog:
       author: "vdineka"
       changes:
         - createTable:
-            tableName: "kitchen_user"
+            tableName: "kitchen_employees"
             columns:
               - column:
                   name: "id"
@@ -24,6 +24,6 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: "role"
-                  type: VARCHAR(5)
+                  type: VARCHAR(10)
                   constraints:
                     nullable: false

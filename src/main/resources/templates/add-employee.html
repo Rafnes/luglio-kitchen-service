@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru-RU">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить сотрудника кухни</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 6px;
+            background: #f9f9f9;
+            width: 300px;
+        }
+        input[type=text] {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0 14px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border:none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/admin_panel/saveEmployee}" th:object="${kitchenEmployee}" method="post">
+        <h2>Добавить сотрудника</h2>
+
+        <label for="username">Имя сотрудника</label>
+        <input type="text" id="username" th:field="*{username}" placeholder="Введите имя" required/>
+
+        <label for="password">Пароль</label>
+        <input type="text" id="password" th:field="*{password}" placeholder="Введите пароль" required/>
+
+        <label>Роль:</label><br/>
+        <label>
+            <input type="radio" th:field="*{role}" value="COOK" /> Повар
+        </label>
+
+        <label>
+            <input type="radio" th:field="*{role}" value="MANAGER" /> Менеджер
+        </label><br>
+
+        <button type="submit" style="margin-top: 20px">Сохранить</button>
+    </form>
+</div>
+</body>
+</html>

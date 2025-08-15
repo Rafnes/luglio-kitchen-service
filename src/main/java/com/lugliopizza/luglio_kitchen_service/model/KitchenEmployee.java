@@ -10,12 +10,12 @@ import lombok.Setter;
 import java.util.Objects;
 
 @Entity
-@Table(name = "kitchen_user")
+@Table(name = "kitchen_employees")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class KitchenUser {
+public class KitchenEmployee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -31,7 +31,7 @@ public class KitchenUser {
     @Column(name = "role")
     private Role role;
 
-    public KitchenUser(String username, String password, String role) {
+    public KitchenEmployee(String username, String password, String role) {
         this.username = username;
         this.password = password;
         this.role = Role.valueOf(role);
@@ -40,7 +40,7 @@ public class KitchenUser {
     @Override
     public boolean equals(Object obj) {
         if (obj == null || getClass() != obj.getClass()) return false;
-        KitchenUser user = (KitchenUser) obj;
+        KitchenEmployee user = (KitchenEmployee) obj;
         return Objects.equals(id, user.id) && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(role, user.role);
     }
 

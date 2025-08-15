@@ -42,7 +42,7 @@ public class KitchenSecurityConfig {
                 )
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/kitchen", true)
+                        .defaultSuccessUrl("/admin_panel", true)
                         .permitAll())
                 .logout(logout -> logout
                 .logoutUrl("/logout")

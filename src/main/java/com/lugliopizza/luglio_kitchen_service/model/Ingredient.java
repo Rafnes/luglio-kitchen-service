@@ -34,6 +34,9 @@ public class Ingredient {
     @Column(name = "description", nullable = false)
     private String description;
 
+    @Column(name = "quantity", nullable = false)
+    private int quantity;
+
     @Setter
     @ManyToMany(mappedBy = "ingredients")
     private List<Pizza> pizzas = new ArrayList<>();
@@ -42,12 +45,12 @@ public class Ingredient {
     public boolean equals(Object obj) {
         if (obj == null || getClass() != obj.getClass()) return false;
         Ingredient ingredient = (Ingredient) obj;
-        return Objects.equals(id, ingredient.id) && type == ingredient.type && Objects.equals(name, ingredient.name) && Objects.equals(description, ingredient.description) && Objects.equals(pizzas, ingredient.pizzas);
+        return Objects.equals(id, ingredient.id) && type == ingredient.type && Objects.equals(name, ingredient.name) && Objects.equals(description, ingredient.description) && Objects.equals(quantity, ingredient.quantity) && Objects.equals(pizzas, ingredient.pizzas);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, type, name, description, pizzas);
+        return Objects.hash(id, type, name, description, quantity, pizzas);
     }
 
     @Override
@@ -57,6 +60,7 @@ public class Ingredient {
                 ", type=" + type +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
+                ", quantity=" + quantity +
                 '}';
     }
 }
